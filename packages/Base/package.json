@@ -1,0 +1,32 @@
+{
+  "name": "@chantelle/checkbox-radio-base",
+  "version": "0.0.4",
+  "description": "The Radio component of the Chantelle Pattern Library",
+  "main": "dist/inputCheck.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "run-p -l build:**",
+    "build:js": "babel src -d dist",
+    "build:css": "postcss src/stylesCheck.pcss --config ../../config/postcss -o dist/stylesCheck.css",
+    "test": "cd ../../ && yarn run test -t base"
+  },
+  "author": {
+    "name": "Chantelle Lingerie GmbH",
+    "url": "http://cl.studio"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:editionlingerie/pattern-library.git"
+  },
+  "peerDependencies": {
+    "classnames": "^2.2.5",
+    "prop-types": "^15.6.1",
+    "react": "^16.2.0"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "name": "@chantelle/pl",
+  "version": "0.1.0",
+  "description": "Chantelle's official User Interface library",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "run-s 'test --silent' build:all",
+    "build:all": "lerna run --parallel build",
+    "clean": "lerna clean --yes && rm -rf packages/**/dist && lerna run --parallel clean",
+    "build:docs": "mkdir -p shared/dist/ && cp -r packages/**/assets/* shared/dist/",
+    "deploy:docs": "run-s 'build:docs' && ./scripts/deploy-heroku.sh",
+    "start:docs": "run-s 'build:docs' && yarn lint && start-storybook -c config/storybook -s ./shared -p 9001",
+    "lint": "eslint --fix **/**/*.jsx",
+    "test": "jest --env=jsdom"
+  },
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "prop-types": "^15.6.1",
+    "react": "^16.2.0"
+  },
+  "devDependencies": {
+    "@chantelle/eslint-config-chantelle": "^0.4.12",
+    "@chantelle/eslint-config-legacy": "^0.4.12",
+    "@chantelle/eslint-plugin-chantelle": "^0.4.12",
+    "@storybook/addon-a11y": "^3.3.15",
+    "@storybook/addon-actions": "^3.3.15",
+    "@storybook/addon-console": "^1.0.0",
+    "@storybook/addon-info": "^3.3.15",
+    "@storybook/addon-knobs": "^3.3.15",
+    "@storybook/addon-options": "^3.3.15",
+    "@storybook/addon-viewport": "^3.3.15",
+    "@storybook/addons": "^3.3.15",
+    "@storybook/cli": "^3.3.15",
+    "@storybook/react": "^3.3.15",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-jest": "^22.1.0",
+    "babel-plugin-syntax-object-rest-spread": "^6.13.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-export-extensions": "^6.22.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-runtime": "^6.26.0",
+    "caniuse-lite": "^1.0.30000813",
+    "command-line-args": "^5.0.1",
+    "command-line-usage": "^4.1.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-jest": "^21.15.1",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-react": "^7.7.0",
+    "jest": "^22.1.4",
+    "lerna": "^2.8.0",
+    "npm-run-all": "^4.1.2",
+    "postcss": "^6.0.16",
+    "postcss-at-rules-variables": "^0.1.4",
+    "postcss-cli": "^5.0.0",
+    "postcss-conditionals": "^2.1.0",
+    "postcss-cssnext": "^3.1.0",
+    "postcss-each": "^0.10.0",
+    "postcss-for": "^2.1.1",
+    "postcss-import": "^11.0.0",
+    "postcss-nested": "^3.0.0",
+    "prettier": "^1.11.1",
+    "react-dom": "^16.2.0",
+    "react-test-renderer": "^16.2.0",
+    "recompose": "^0.27.0",
+    "sinon": "^4.5.0",
+    "storybook-addon-jsx": "^5.3.0",
+    "storybook-addon-smart-knobs": "^3.3.1",
+    "storybook-readme": "^3.2.1"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@chantelle/chantelle"
+    ]
+  },
+  "author": {
+    "name": "Chantelle Lingerie GmbH",
+    "url": "http://cl.studio"
+  },
+  "contributors": [
+    {
+      "name": "Clement Trestard",
+      "email": "clement.trestard@groupechantelle.com"
+    },
+    {
+      "name": "Gabriel Izaias",
+      "email": "gabriel.izaias@groupechantelle.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:editionlingerie/pattern-library.git"
+  },
+  "license": "UNLICENSED",
+  "babel": {
+    "presets": [
+      "env",
+      "react"
+    ],
+    "plugins": [
+      "syntax-object-rest-spread",
+      "transform-class-properties",
+      "transform-export-extensions"
+    ]
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "<rootDir>/packages/**/*.{js,jsx}"
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/config/jest/setup.js",
+    "transform": {
+      "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+    },
+    "testEnvironment": "node"
+  }
+}

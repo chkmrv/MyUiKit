@@ -1,0 +1,4 @@
+AuthUserFile /app/.htpasswd
+AuthName "Acces restricted"
+AuthType Basic
+Require valid-user

@@ -1,0 +1,25 @@
+{
+  "name": "@chantelle/styles",
+  "version": "0.1.0",
+  "description": "The Styles package of the Chantelle Pattern Library",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "run-p -l build:**",
+    "build:css": "mkdir -p dist && cp src/variables.css dist/styles.css"
+  },
+  "author": {
+    "name": "Chantelle Lingerie GmbH",
+    "url": "http://cl.studio"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:editionlingerie/pattern-library.git"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}

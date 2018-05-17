@@ -1,0 +1,38 @@
+@import '../../Styles/src/variables.css';
+
+.pl-link {
+  appearance: none;
+  background: none;
+  border: none;
+  color: var(--gray-darkest);
+  cursor: pointer;
+  display: inline;
+  font-family: var(--font-family-sans-serif);
+  font-size: var(--font-size);
+  font-style: normal;
+  font-weight: var(--font-weight-normal);
+  line-height: calc(var(--font-size) * 1.3);
+  margin: 0;
+  padding: 0;
+  pointer-events: 'auto';
+  text-decoration: underline;
+  white-space: nowrap;
+
+  &.pl-link--secondary {
+    font-size: calc(var(--font-size) * 0.85);
+    line-height: calc(var(--font-size) * 0.85 * 1.6);
+  }
+
+  &:focus {
+    color: var(--gray-darkest);
+    outline: var(--outline-width) var(--outline-style) var(--outline-color);
+    outline-offset: var(--outline-offset);
+    text-decoration: underline;
+  }
+
+  &:hover {
+    color: var(--gray-darkest);
+    opacity: 0.8;
+    text-decoration: underline;
+  }
+}

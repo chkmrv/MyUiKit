@@ -1,0 +1,31 @@
+{
+  "name": "@chantelle/checkbox",
+  "version": "0.3.3",
+  "description": "The Checkbox component of the Chantelle Pattern Library",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "run-p -l build:**",
+    "build:js": "babel src -d dist",
+    "build:css": "postcss src/styles.pcss --config ../../config/postcss -o dist/styles.css",
+    "test": "cd ../../ && yarn run test -t checkbox"
+  },
+  "author": {
+    "name": "Chantelle Lingerie GmbH",
+    "url": "http://cl.studio"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:editionlingerie/pattern-library.git"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.6.1",
+    "react": "^16.2.0"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
+}
